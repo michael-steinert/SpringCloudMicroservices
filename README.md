@@ -1,7 +1,7 @@
 # Microservices
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/29623199/144274377-3f435482-5ca2-4788-8860-04b63e5e42c8.png" alt="Microservice-Architecture" width="100%"/>
+    <img src="https://user-images.githubusercontent.com/29623199/146809794-b8801150-2ca8-441d-b62f-d7cb28012feb.png" alt="Microservice-Architecture" width="100%"/>
 </P>
 
 <hr>
