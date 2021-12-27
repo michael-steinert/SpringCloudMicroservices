@@ -19,6 +19,7 @@
         <module>service-discovery</module>
         <module>clients</module>
         <module>notification</module>
+        <module>api-gateway</module>
     </modules>
 
     <name>spring-microservices</name>
