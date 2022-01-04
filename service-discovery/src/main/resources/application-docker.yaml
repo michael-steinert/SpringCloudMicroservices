@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: service-discovery
+  zipkin:
+    base-url: http://zipkin:9411
+
+server:
+  port: 8761
+
+eureka:
+  client:
+    # Only Clients need to fetch the Registry from the Service Discovery to interact with registered Clients
+    fetch-registry: false
+    # Only Clients need to register to the Service Discovery to be fund by other registered Clients
+    register-with-eureka: false

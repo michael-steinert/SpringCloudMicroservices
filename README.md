@@ -18,11 +18,11 @@
 <hr>
 
 ## Starting Environment through Docker Compose
-|Command|Description|
-|---|---|
-|docker compose up -d|Starts Environment|
-|docker compose ps|Shows running Containers|
-|docker compose down|Stops running Containers|
+| Command                | Description              |
+|------------------------|--------------------------|
+| docker compose up -d   | Starts Environment       |
+| docker compose ps      | Shows running Containers |
+| docker compose down    | Stops running Containers |
 
 <hr>
 
