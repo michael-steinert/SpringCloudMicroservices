@@ -20,6 +20,7 @@
         <module>clients</module>
         <module>notification</module>
         <module>api-gateway</module>
+        <module>advanced-message-queue</module>
     </modules>
 
     <name>spring-microservices</name>

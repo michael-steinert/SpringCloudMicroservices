@@ -15,9 +15,21 @@
     -DarchetypeVersion=1.4 \
     -DinteractiveMode=false
 
+<hr>
+
 ## Starting Environment through Docker Compose
 |Command|Description|
 |---|---|
 |docker compose up -d|Starts Environment|
 |docker compose ps|Shows running Containers|
 |docker compose down|Stops running Containers|
+
+<hr>
+
+## RabbitMQ
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/29623199/148028761-9030bdc9-72df-466e-983c-a4e69ec413e3.png" alt="RabbitMQ" width="100%"/>
+</P>
+
+<hr>
