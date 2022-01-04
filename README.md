@@ -33,3 +33,10 @@
 </P>
 
 <hr>
+
+## JAR
+* A JAR is a Package File Format that is used to aggregate Java Class Files and associated Metadata and Ressoruces into on File for Distribution
+* JAR Files are Archive Files that include a Java-specific Manifest File
+* They are built on the ZIP Format and have a ".jar" File Extension
+
+<hr>
