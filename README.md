@@ -1,7 +1,7 @@
 # Microservices
 
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/29623199/146809794-b8801150-2ca8-441d-b62f-d7cb28012feb.png" alt="Microservice-Architecture" width="100%"/>
+    <img src="https://user-images.githubusercontent.com/29623199/148945164-26f259e4-6e6e-4830-8cc9-76dee52ffdfe.png" alt="Microservice-Architecture" width="100%"/>
 </P>
 
 <hr>
@@ -26,7 +26,22 @@
 
 <hr>
 
-## RabbitMQ
+## Service Discovery
+1) The Service Discovery Server allows Clients to register
+2) Clients can look up for other Clients in the Service Discovery Server
+3) Clients can now connect to other Clients by using the looked up Information from the Server Discovery Server
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/29623199/148937888-e64a4751-0d32-47d1-b19d-ff8ef04a3d82.png" alt="Service Discovery" width="100%"/>
+</P>
+
+<hr>
+
+## Message Queue
+
+* A Messaging Broker receives Messages from Publishers / Producers and route them to Consumers 
+* Since it is a Network Protocol, the Publisher, Consumer the Messaging Broker can all reside on different Machines
+* A Message is removed from the Messaging Broker as the Consumer send an Acknowledgment
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/29623199/148028761-9030bdc9-72df-466e-983c-a4e69ec413e3.png" alt="RabbitMQ" width="100%"/>
@@ -78,6 +93,10 @@
 <hr>
 
 ## Kubernetes
+
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/29623199/148969737-b8b35cf6-7698-4694-9678-723e3de3b050.png" alt="K8S Ecosystem" width="100%"/>
+</P>
 
 ### Master Node
 
