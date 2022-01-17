@@ -1,13 +1,13 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   application:
-    name: customer
+    name: fraud
   datasource:
     username: user
     password: password
-    url: jdbc:postgresql://postgres:5432/customer
+    url: jdbc:postgresql://postgres:5432/fraud
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -18,8 +18,6 @@ spring:
     show-sql: true
   zipkin:
     base-url: http://zipkin:9411
-  rabbitmq:
-    addresses: rabbitmq:5672
 
 eureka:
   client:
@@ -29,3 +27,5 @@ eureka:
     fetch-registry: true
     # Clients need to register to the Service Discovery to be fund by other registered Clients
     register-with-eureka: true
+    # Using instead Kubernetes Service LoadBalancer
+    enabled: false

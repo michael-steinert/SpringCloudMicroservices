@@ -29,6 +29,8 @@ eureka:
     fetch-registry: true
     # Clients need to register to the Service Discovery to be fund by other registered Clients
     register-with-eureka: true
+    # Using instead Kubernetes Service LoadBalancer
+    enabled: false
 
 # Custom Properties
 rabbitmq:

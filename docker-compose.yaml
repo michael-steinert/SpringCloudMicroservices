@@ -48,17 +48,18 @@ services:
     networks:
       - microservices
 
-  service-discovery:
-    image: michaelxsteinertxcontainer/service-discovery:latest
-    container_name: service-discovery
-    environment:
-      - SPRING_PROFILES_ACTIVE=docker
-    ports:
-      - "8761:8761"
-    networks:
-      - microservices
-    depends_on:
-      - zipkin
+# Instead of Eureka Server using Kubernetes Service LoadBalancer
+#  service-discovery:
+#    image: michaelxsteinertxcontainer/service-discovery:latest
+#    container_name: service-discovery
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=docker
+#    ports:
+#      - "8761:8761"
+#    networks:
+#      - microservices
+#    depends_on:
+#      - zipkin
 
   api-gateway:
     image: michaelxsteinertxcontainer/api-gateway:latest
@@ -70,7 +71,7 @@ services:
     networks:
       - microservices
     depends_on:
-      - service-discovery
+      # - service-discovery
       - zipkin
 
   customer:
@@ -84,7 +85,7 @@ services:
       - postgres
       - microservices
     depends_on:
-      - service-discovery
+      # - service-discovery
       - zipkin
       - postgres
       - rabbitmq
@@ -100,7 +101,7 @@ services:
       - postgres
       - microservices
     depends_on:
-      - service-discovery
+      # - service-discovery
       - zipkin
       - postgres
       - rabbitmq
@@ -116,7 +117,7 @@ services:
       - postgres
       - microservices
     depends_on:
-      - service-discovery
+      # - service-discovery
       - zipkin
       - postgres
       - rabbitmq
