@@ -8,25 +8,29 @@
 
 ## Generate Maven Project
 
-* mvn archetype:generate \
+```bash
+mvn archetype:generate \
     -DgroupId=com.steinert-michael \
     -DartifactId=spring-microservices \
     -DarchetypeArtifactId=maven-archetype-quickstart \
     -DarchetypeVersion=1.4 \
     -DinteractiveMode=false
+```
 
 <hr>
 
 ## Starting Environment through Docker Compose
-| Command                | Description              |
-|------------------------|--------------------------|
-| docker compose up -d   | Starts Environment       |
-| docker compose ps      | Shows running Containers |
-| docker compose down    | Stops running Containers |
+
+| Command              | Description                               |
+|----------------------|-------------------------------------------|
+| docker compose up -d | Starts Environment containing Containers  |
+| docker compose ps    | Shows running Containers from Environment |
+| docker compose down  | Stops running Containers from Environment |
 
 <hr>
 
 ## Service Discovery
+
 1) The Service Discovery Server allows Clients to register
 2) Clients can look up for other Clients in the Service Discovery Server
 3) Clients can now connect to other Clients by using the looked up Information from the Server Discovery Server
@@ -39,7 +43,7 @@
 
 ## Message Queue
 
-* A Messaging Broker receives Messages from Publishers / Producers and route them to Consumers 
+* A Messaging Broker receives Messages from Publishers / Producers and route them to Consumers
 * Since it is a Network Protocol, the Publisher, Consumer the Messaging Broker can all reside on different Machines
 * A Message is removed from the Messaging Broker as the Consumer send an Acknowledgment
 
@@ -51,14 +55,16 @@
 
 * RabbitMQ is a solid, general-purpose Message Broker that supports several Protocols such as AMQP, MQTT, STOMP, etc.
 * RabbitMQ can handle high Throughput
-* A Use Case for RabbitMQ is to handle Background Jobs or long-running Task, such as File Scanning, Image Scaling or PDF Conversion
-* RabbitMQ is also used between Microservices, where it serves as a Means of Communicating between Applications, avoiding Bottlenecks passing Messages
+* A Use Case for RabbitMQ is to handle Background Jobs or long-running Task, such as File Scanning, Image Scaling or PDF
+  Conversion
+* RabbitMQ is also used between Microservices, where it serves as a Means of Communicating between Applications,
+  avoiding Bottlenecks passing Messages
 
 * Kafka is a Message Bus optimized for high-throughput Input and Output Data Streams
 * Kafka is used when:
-  * a large Amount of Data is moved,
-  * Data is processed in Real-Time or
-  * Data is analyzed over a Time Period
+    * a large Amount of Data is moved,
+    * Data is processed in Real-Time or
+    * Data is analyzed over a Time Period
 * Kafka is used where Data need to be collected, stored, and handled
 * An Example is User Activity is tracked on a Web Shop and suggested Items to buy are generated
 * Another example is Data Analysis for Tracking, Ingestion, Logging or Security
@@ -80,13 +86,16 @@
 * Each Record in a Partition is assigned and identified by its unique Offset
 * This Offset points to the Record in a Partition
 * Kafka maintains a numerical Offset for each Record in a Partition
-* A __Consumer__ in Kafka can either automatically commit Offsets periodically, or he can choose to control this committed Position manually
+* A __Consumer__ in Kafka can either automatically commit Offsets periodically, or he can choose to control this
+  committed Position manually
 * RabbitMQ will keep all States about consumed/acknowledged/unacknowledged Messages
 
 <hr>
 
 ## JAR
-* A JAR is a Package File Format that is used to aggregate Java Class Files and associated Metadata and Resources into on File for Distribution
+
+* A JAR is a Package File Format that is used to aggregate Java Class Files and associated Metadata and Resources into
+  on File for Distribution
 * JAR Files are Archive Files that include a Java-specific Manifest File
 * They are built on the ZIP Format and have a ".jar" File Extension
 
@@ -136,10 +145,10 @@
 
 * The Controller Manager is a Daemon that manages the Control Loop
 * It is a Controller of the following Controllers:
-  * ReplicaSet Controller manages Release of new Application and guarantees Zero Downtime Deployments
-  * Endpoint Controller
-  * Namespace Controller
-  * Service Account Controller allows Communication with Pods
+    * ReplicaSet Controller manages Release of new Application and guarantees Zero Downtime Deployments
+    * Endpoint Controller
+    * Namespace Controller
+    * Service Account Controller allows Communication with Pods
 * Each Controller watches the API Server for Changes that do not match the desired State with the current State
 
 #### Cloud Controller Manager
@@ -151,9 +160,9 @@
 * A Worker Node is a Virtual Machine or Physical Machine that provides a running Environment for Applications
 * In these running Environment runs Pods
 * The Worker Node consists of the following Components:
-  * __Kublet__ is an Agent that runs on every Node and interacts with the Container Runtime
-  * __Container Runtime__ pulls Images from a Container Registry and manages them
-  * __Kube Proxy__ is an Agent that runs on every Node and allows Pods to communicate with each other
+    * __Kublet__ is an Agent that runs on every Node and interacts with the Container Runtime
+    * __Container Runtime__ pulls Images from a Container Registry and manages them
+    * __Kube Proxy__ is an Agent that runs on every Node and allows Pods to communicate with each other
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/29623199/148217164-ce168a73-cd13-437c-8a0b-2ad493a2f5ac.png" alt="Worker Node" width="100%"/>
@@ -173,18 +182,28 @@
 * It is responsible for running Containers and abstracts Container Management for Kubernetes
 
 #### Kube Proxy
+
 * Kube Proxy is an Agent that runs on every Node through DaemonSets
 * It is responsible for local Cluster Networking that allows Pods to communicate with each other
 * It provides each Node an own unique IP Address
 * It routes Network Traffic to load balanced Services
 
 ### Pod
+
 * A Pod is the smallest deployable Unit in Kubernetes
 * It is a Collection of one or more Containers
 * It can consist of the following Containers:
-  * __Main Container__ is necessary for a Pod
-  * __Init Container__ runs before the Main Container and initializes it
-  * __Side Container__ runs parallel to the Main Container and supports it
-  * __Volumes__ share Data between Containers
+    * __Main Container__ is necessary for a Pod
+    * __Init Container__ runs before the Main Container and initializes it
+    * __Side Container__ runs parallel to the Main Container and supports it
+    * __Volumes__ share Data between Containers
 * Pods share Network and Volumes
 * Pods are created by Controllers
+
+<hr>
+
+## API Key Authentication
+
+* Before a Request is routed to a Microservice, its API Key must be validated
+* Depending on the Validation, the Request is either forwarded to the appropriate Microservice or rejected (i.e. NOT_AUTHORIZED Response)
+* Validation of the API Key provided by the Client can be done through a custom or managed API Management
