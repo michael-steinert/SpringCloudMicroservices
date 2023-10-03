@@ -80,7 +80,14 @@ mvn archetype:generate \
 * Kafka is designed for horizontal Scaling (scale by adding more Compute Machines)
 * RabbitMQ is designed for vertical Scaling (scale by adding more Compute Power)
 
-### Consumers and Consumer Groups in Kafka
+### Kafka
+
+* Kafka is a distributed Streaming Platform that allows Producers to send Realtime Stream Events to a Broker (i.e.
+  Message Queue) that can be received by Consumers
+* Consumers can subscribe to Topics to be notified of new Event Streams
+* A __Topic__ is a Collection of Events that are replicated and partitioned
+
+#### Consumers and Consumer Groups
 
 * Partitions allow to parallelize a Topic by Splitting the Data across multiple Nodes
 * Each Record in a Partition is assigned and identified by its unique Offset
@@ -89,6 +96,19 @@ mvn archetype:generate \
 * A __Consumer__ in Kafka can either automatically commit Offsets periodically, or he can choose to control this
   committed Position manually
 * RabbitMQ will keep all States about consumed/acknowledged/unacknowledged Messages
+
+#### Kafka Streams API
+
+* Kafka Streams API can be used for Data Transformation or Filtering, Grouping, Aggregating and Joining Data
+
+#### Kafka Connect Source
+
+* Kafka Connect Source allows the Data Integration
+
+#### Kafka Connect Sinks
+
+* After a Message has been consumed, it can be stored in a Database through Kafka Connect Sinks, rather than the
+  traditional Way of Deleting a Message when it has been consumed
 
 <hr>
 
@@ -205,5 +225,7 @@ mvn archetype:generate \
 ## API Key Authentication
 
 * Before a Request is routed to a Microservice, its API Key must be validated
-* Depending on the Validation, the Request is either forwarded to the appropriate Microservice or rejected (i.e. NOT_AUTHORIZED Response)
+* Depending on the Validation, the Request is either forwarded to the appropriate Microservice or rejected (i.e.
+  NOT_AUTHORIZED Response)
 * Validation of the API Key provided by the Client can be done through a custom or managed API Management
+
